@@ -11,6 +11,8 @@ const itTask = document.querySelector("#itTask");
 const form = document.querySelector("#form");
 const taskName = document.querySelector("#time #taskName");
 
+const music = new Audio('sfx-cartoons.mp3');
+
 renderTime();
 renderTasks();
 
@@ -84,6 +86,7 @@ function timeHandler(id) {
   renderTime();
 
   if (time === 0) {
+    music.play();
     clearInterval(timer);
     markCompleted(id);
     timer = null;
