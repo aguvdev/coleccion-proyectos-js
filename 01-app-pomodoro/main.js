@@ -12,6 +12,8 @@ const form = document.querySelector("#form");
 const taskName = document.querySelector("#time #taskName");
 
 const music = new Audio('sfx-cartoons.mp3');
+const popSound = new Audio('sfx-pop.mp3');
+const popSound2 = new Audio('sfx-pop2.mp3');
 
 renderTime();
 renderTasks();
@@ -22,6 +24,7 @@ form.addEventListener("submit", (e) => {
     createTask(itTask.value); /* esto crea la tarea impresa */
     itTask.value = ""; /* esto borra el deja limpio el input */
     renderTasks();
+    popSound.play();
   }
 });
 
@@ -71,6 +74,7 @@ function renderTasks(params) {
 }
 
 function startButtonHandler(id) {
+  popSound2.play();
   time = 25 * 60; /* 25min por 60seg cada uno */
   current = id; /* va a guardar el id de la actividad actual */
   const taskIndex = tasks.findIndex((task) => task.id === id);
