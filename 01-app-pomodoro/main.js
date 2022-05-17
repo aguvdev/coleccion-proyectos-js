@@ -73,7 +73,7 @@ function startButtonHandler(id) {
   current = id; /* va a guardar el id de la actividad actual */
   const taskIndex = tasks.findIndex((task) => task.id === id);
   taskName.textContent = tasks[taskIndex].title;
-
+  renderTime();
   timer = setInterval(() => {
     timeHandler(id);
   }, 1000);
@@ -95,6 +95,7 @@ function timeHandler(id) {
 function startBreak() {
   time = 5 * 60;
   taskName.textContent = "Break";
+  renderTime();
   timerBreak = setInterval(() => {
     timerBreakHandler();
   }, 1000);
